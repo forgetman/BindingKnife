@@ -14,8 +14,8 @@ ext.versions = [
         kotlin        : '1.2.41',
 
         rx            : [
-                java     : '2.1.14',
-                binding  : '2.1.1',
+                java   : '2.1.14',
+                binding: '2.1.1',
         ],
 
         butterknife   : '8.8.1',

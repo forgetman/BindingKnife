@@ -45,8 +45,8 @@ out
 atlassian-ide-plugin.xml
 
 # AndroidStudio specific files/directories
-local.properties
-settings.gradle
+#local.properties
+#settings.gradle
 
 # Eclipse specific files/directories
 .classpath
@@ -63,3 +63,4 @@ bin/
 # jEnv
 .java-version
 app/
+knife-test/libs/
