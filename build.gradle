@@ -1,10 +1,7 @@
 buildscript {
     apply from: 'deps.gradle'
 
-    repositories {
-        google()
-        jcenter()
-    }
+    addRepos(repositories)
 
     dependencies {
         classpath paths.gradlePlugin
@@ -13,51 +10,10 @@ buildscript {
     }
 }
 
-repositories {
-    google()
-    jcenter()
+allprojects {
+    addRepos(repositories)
 }
 
-apply plugin: plugs.android.lib
-apply plugin: plugs.kotlin.android
-apply plugin: plugs.maven
-
-group='com.github.forgetman'
-
-dependencies {
-    compileOnly deps.kotlin.kotlin
-
-    compileOnly deps.butterknife.core
-
-    compileOnly deps.support.v4
-    compileOnly deps.support.recyclerview
-
-    compileOnly deps.rx.binding
-}
-
-android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
-
-    defaultConfig {
-        versionCode 1
-        versionName '1.0'
-
-        minSdkVersion 14
-        targetSdkVersion 27
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    lintOptions {
-        abortOnError false
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        androidTest.java.srcDirs += 'src/androidTest/kotlin'
-    }
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

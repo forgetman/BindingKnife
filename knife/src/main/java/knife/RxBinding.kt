@@ -1,4 +1,4 @@
-package kotterknife
+package knife
 
 import android.view.View
 import com.jakewharton.rxbinding2.view.RxView
