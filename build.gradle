@@ -1,6 +1,5 @@
 buildscript {
-    ext.kotlinVersion = '1.2.41'
-    ext.supportLibrary = '27.1.1'
+    apply from: 'deps.gradle'
 
     repositories {
         google()
@@ -8,8 +7,9 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath paths.gradlePlugin
+        classpath paths.kotlinPlugin
+        classpath paths.mavenPlugin
     }
 }
 
@@ -18,13 +18,21 @@ repositories {
     jcenter()
 }
 
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+apply plugin: plugs.android.lib
+apply plugin: plugs.kotlin.android
+apply plugin: plugs.maven
+
+group='com.github.forgetman'
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-    compileOnly "com.android.support:recyclerview-v7:$supportLibrary"
-    compileOnly "com.android.support:support-v4:$supportLibrary"
+    compileOnly deps.kotlin.kotlin
+
+    compileOnly deps.butterknife.core
+
+    compileOnly deps.support.v4
+    compileOnly deps.support.recyclerview
+
+    compileOnly deps.rx.binding
 }
 
 android {
@@ -33,7 +41,7 @@ android {
 
     defaultConfig {
         versionCode 1
-        versionName '2.0'
+        versionName '1.0'
 
         minSdkVersion 14
         targetSdkVersion 27
