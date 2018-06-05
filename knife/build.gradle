@@ -5,11 +5,12 @@ apply plugin: plugs.maven
 group = 'com.github.forgetman'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 27
+        targetSdkVersion versions.compileSdk
 
         versionCode 1
         versionName "1.0"
