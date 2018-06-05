@@ -1,7 +1,10 @@
 buildscript {
     apply from: 'deps.gradle'
 
-    addRepos(repositories)
+    repositories {
+        jcenter()
+        google()
+    }
 
     dependencies {
         classpath paths.gradlePlugin
@@ -11,7 +14,10 @@ buildscript {
 }
 
 allprojects {
-    addRepos(repositories)
+    repositories {
+        jcenter()
+        google()
+    }
 }
 
 task clean(type: Delete) {
