@@ -1,25 +1,15 @@
 buildscript {
     apply from: 'deps.gradle'
-
-    repositories {
-        jcenter()
-        google()
-    }
-
-    dependencies {
-        classpath paths.gradlePlugin
-        classpath paths.kotlinPlugin
-        classpath paths.mavenPlugin
-    }
+    addRepos(repositories)
+    addDependencies(getDependencies())
 }
 
 allprojects {
-    repositories {
-        jcenter()
-        google()
-    }
+    addRepos(repositories)
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+apply from: 'https://github.com/forgetman/gradle-deps/blob/master/version.gradle?raw=true'
