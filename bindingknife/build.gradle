@@ -43,8 +43,6 @@ android {
 dependencies {
     compileOnly deps.kotlin.kotlin
 
-    compileOnly deps.butterknife.core
-
     compileOnly deps.support.v4
     compileOnly deps.support.recyclerview
 
